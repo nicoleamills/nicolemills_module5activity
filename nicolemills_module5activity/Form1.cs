@@ -12,7 +12,7 @@ namespace nicolemills_module5activity
 {
     public partial class Form1 : Form
     {
-
+        string filename;
         public Form1()
         {
             InitializeComponent();
@@ -25,7 +25,16 @@ namespace nicolemills_module5activity
 
         private void button1_Click(object sender, EventArgs e)
         {
+            OpenFileDialog fileOpen = new OpenFileDialog
+            {
+                DefaultExt = "txt",
+                Filter = "txt files (*.txt)|*.txt",
+            };
 
+            if (fileOpen.ShowDialog() == DialogResult.OK)
+            {
+                filename = fileOpen.FileName;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
