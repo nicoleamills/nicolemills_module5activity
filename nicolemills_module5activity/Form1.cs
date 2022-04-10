@@ -39,7 +39,16 @@ namespace nicolemills_module5activity
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            using (StreamReader fin = new StreamReader(filename))
+            {
+                string line;
+                while ((line = fin.ReadLine()) != null)
+                {
+                    if (line.Contains(textBox1.Text.Trim()))
+                        listBox1.Items.Add(line);
+                }
+                fin.Close();
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
